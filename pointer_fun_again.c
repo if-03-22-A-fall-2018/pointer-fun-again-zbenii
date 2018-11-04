@@ -12,14 +12,14 @@
  */
 
 #include <stdio.h>
-#include "pointer_fun_again.h"
 
 struct PlayStruct
 {
   int int_value;
   double double_value;
-  char a_string[64];
+  char *a_string;
 };
+int print_struct(struct PlayStruct ps,struct PlayStruct *pps);
 
 int main(int argc, char const *argv[]) {
 
@@ -32,10 +32,10 @@ int main(int argc, char const *argv[]) {
   return 0;
 }
 
-int print_struct(struct PlayStruct ps,struct PlayStruct pps)
+int print_struct(struct PlayStruct ps,struct PlayStruct *pps)
 {
   printf("Values of struct ps: <%d> <%lf> <%s> \n",ps.int_value,ps.double_value,ps.a_string);
-  printf("Values of struct pps: <%d> <%lf> <%s> \n",pps.int_value,pps.double_value,pps.a_string );
+  printf("Values of struct pps: <%d> <%lf> <%s> \n",pps->int_value,pps->double_value,pps->a_string );
 
   return 0;
 }
