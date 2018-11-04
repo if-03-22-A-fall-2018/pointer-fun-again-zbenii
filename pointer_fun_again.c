@@ -19,6 +19,7 @@ struct PlayStruct
   double double_value;
   char a_string[64];
 };
+
 void print_struct(struct PlayStruct ps,struct PlayStruct *pps);
 void change_struct(struct PlayStruct ps,struct PlayStruct *pps);
 void print_string(char string_to_print[]);
@@ -35,9 +36,11 @@ int main(int argc, char const *argv[]) {
 
   print_string(play_struct.a_string);
   printf("\n");
+
   char another_string[16]="hellohello";
-  char *p_another_string = another_string;
-  change_string(play_struct.a_string,p_another_string);
+  char *another_string_pointer = another_string;
+
+  change_string(play_struct.a_string,another_string_pointer);
   print_string(play_struct.a_string);
   print_string(another_string);
   //both strings got cut because I added '\0'
@@ -53,21 +56,14 @@ void print_struct(struct PlayStruct ps,struct PlayStruct *pps)
 
 void change_struct(struct PlayStruct ps,struct PlayStruct *pps)
 {
-  ps.int_value=2;
-  ps.double_value=3.5;
-  ps.a_string[0]='b';
-  ps.a_string[1]='y';
-  ps.a_string[2]='e';
-  ps.a_string[3]='\0';
-  pps-> int_value=6;
-  pps->double_value=7.5;
-  pps->a_string[0]='b';
-  pps->a_string[1]='y';
-  pps->a_string[2]='e';
-  pps->a_string[3]='b';
-  pps->a_string[4]='y';
-  pps->a_string[5]='e';
-  pps->a_string[6]='\0';
+  ps.int_value=2;ps.double_value=3.5;
+  ps.a_string[0]='b';ps.a_string[1]='y';
+  ps.a_string[2]='e';ps.a_string[3]='\0';
+
+  pps-> int_value=6;pps->double_value=7.5;
+  pps->a_string[0]='b';pps->a_string[1]='y';
+  pps->a_string[2]='e';pps->a_string[3]='b';
+  pps->a_string[4]='y';pps->a_string[5]='e';pps->a_string[6]='\0';
 
 }
 
